@@ -22,34 +22,35 @@ function assignedShift(x,y,z){
     }
     else{
         let newShift = {Day:y,Hours:z};
-        return employees[index].shifts.push(newShift);//adds the newshift to the shifts
+        employees[index].shifts.push(newShift);
+        console.log(`${x} has a new shift on ${y} for ${z} hours`)//adds the newshift to the shifts
     }
     return;
 }
-assignedShift("Charlie","Thursday",6);
+assignedShift("Charlie","Wednesday",6);
 
 function calculateTotalHours(x){
     let employeeFinder = employees.find(employee=>employee.name===x);
     let shiftsCurrent = employeeFinder.shifts;
     let sum = shiftsCurrent.reduce((x,y)=>x+y.Hours,0);//sums the hours worked
-    console.log(sum);
+    console.log(`Total hours:${sum}`);
     return;
 }
 calculateTotalHours("Daniel");
 
-function listAvailableEMployees(x){
+function listAvailableEmployees(x){
     for (let i = 0; i < employees.length; i++) {
         let arr = employees[i].shifts;
         if (arr.some(shift=>shift.Day===x)){//use some to see if any day matches
-            return;
+            continue;
         }
         else{
-            console.log(employees[i].name);//return name if employee does not have shift
+            console.log(`${employees[i].name} does not work ${x}`);//return name if employee does not have shift
         }
     }
     return;
 }
-listAvailableEMployees("Wednesday");
+listAvailableEmployees("Thursday");
 
 
 
