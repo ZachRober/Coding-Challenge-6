@@ -28,4 +28,14 @@ function assignedShift(x,y,z){
 }
 assignedShift("Charlie","Thursday",6);
 
+function calculateTotalHours(x){
+    let employeeFinder = employees.find(employee=>employee.name===x);
+    let shiftsCurrent = employeeFinder.shifts;
+    let sum = shiftsCurrent.reduce((x,y)=>x+y.Hours,0);//sums the hours worked
+    console.log(sum);
+    return;
+}
+calculateTotalHours("Daniel");
+
+
 
