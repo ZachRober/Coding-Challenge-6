@@ -37,5 +37,19 @@ function calculateTotalHours(x){
 }
 calculateTotalHours("Daniel");
 
+function listAvailableEMployees(x){
+    for (let i = 0; i < employees.length; i++) {
+        let arr = employees[i].shifts;
+        if (arr.some(shift=>shift.Day===x)){//use some to see if any day matches
+            return;
+        }
+        else{
+            console.log(employees[i].name);//return name if employee does not have shift
+        }
+    }
+    return;
+}
+listAvailableEMployees("Wednesday");
+
 
 
